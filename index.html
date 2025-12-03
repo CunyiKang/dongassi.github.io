@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DONGASSI | 万物有属</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; }
+        
+        /* 保持图片原色，仅添加黑色遮罩以突出白色文字 */
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* 弹窗动画效果 */
+        .modal {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            transform: scale(0.95);
+            transition: transform 0.3s ease-in-out;
+        }
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="text-gray-800 bg-gray-50">
+
+    <nav class="bg-white shadow-md fixed w-full z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-3xl font-extrabold text-purple-800 tracking-wide">DONGASSI</span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-gray-600 font-medium hover:text-purple-700 transition">关于我们</a>
+                    <a href="#business" class="text-gray-600 font-medium hover:text-purple-700 transition">核心业务</a>
+                    <a href="#esg" class="text-gray-600 font-medium hover:text-purple-700 transition">ESG</a>
+                    <a href="#news" class="text-gray-600 font-medium hover:text-purple-700 transition">新闻动态</a>
+                    <a href="#careers" class="text-gray-600 font-medium hover:text-purple-700 transition">加入我们</a>
+                    <a href="#contact" class="bg-purple-800 text-white px-5 py-2 rounded-full hover:bg-purple-900 transition shadow-lg">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-bg h-screen flex items-center justify-center text-center px-4 relative z-0">
+        <div class="text-white max-w-4xl">
+            <h1 class="text-6xl md:text-7xl font-bold mb-6 tracking-tight">万物有属</h1>
+            <p class="text-2xl md:text-3xl italic mb-8 opacity-90">All creatures are belong.</p>
+            <p class="text-xl md:text-2xl mb-10 font-light">重新定义宠物关怀的全球综合生态引领者</p>
+            <a href="#about" class="bg-white text-purple-900 border-2 border-white px-8 py-3 rounded-full hover:bg-transparent hover:text-white transition duration-300 font-bold text-lg">了解更多</a>
+        </div>
+    </div>
+
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-purple-900 mb-8">关于我们</h2>
+            <div class="w-24 h-1 bg-purple-500 mx-auto mb-10"></div>
+            <p class="text-xl text-gray-700 leading-relaxed mb-8">
+                <strong class="text-purple-800">DONGASSI</strong> 成立于英国剑桥，是全球首个宠物领域的综合品牌。
+            </p>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                我们以“学术-科研-市场”的联结模式整合世界顶尖资源，构建覆盖生物医疗、智能科技与数据服务的全链路生态。我们以科研为引擎，以数据智能为核心，致力于打破行业壁垒，重塑宠物健康标准 [cite: 79-80]。
+            </p>
+        </div>
+    </section>
+
+    <section id="business" class="py-24 bg-purple-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-purple-900 mb-16">核心业务板块</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-2xl transition duration-300 border-t-4 border-purple-600 group">
+                    <h3 class="text-2xl font-bold mb-4 text-purple-800 group-hover:text-purple-600 transition">01. 宠物智能消费</h3>
+                    <p class="text-gray-600">打造一站式宠物家庭消费平台。从日常用品到智能设备，构建“大平台·全链路·高标准”的消费新生态。</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-2xl transition duration-300 border-t-4 border-purple-600 group">
+                    <h3 class="text-2xl font-bold mb-4 text-purple-800 group-hover:text-purple-600 transition">02. 宠物家居</h3>
+                    <p class="text-gray-600">让生活空间成为宠物的安心之所。精选优质材质，为猫、狗与异宠打造更舒适、安全的专属空间。</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-2xl transition duration-300 border-t-4 border-purple-600 group">
+                    <h3 class="text-2xl font-bold mb-4 text-purple-800 group-hover:text-purple-600 transition">03. 智能宠物用品</h3>
+                    <p class="text-gray-600">用科技让照顾变得更轻松。AI行为识别与数据监测，让宠物健康状态一目了然。</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-2xl transition duration-300 border-t-4 border-purple-600 group">
+                    <h3 class="text-2xl font-bold mb-4 text-purple-800 group-hover:text-purple-600 transition">04. 宠物医疗</h3>
+                    <p class="text-gray-600">连接线上线下医疗资源。提供问诊、科普、风险识别及疗程管理，为宠主提供透明医疗选择。</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-2xl transition duration-300 border-t-4 border-purple-600 group">
+                    <h3 class="text-2xl font-bold mb-4 text-purple-800 group-hover:text-purple-600 transition">05. 宠物保健品</h3>
+                    <p class="text-gray-600">以科学营养守护健康。联合专家团队，提供科学、安全、透明的营养与保健方案。</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-2xl transition duration-300 border-t-4 border-purple-600 flex items-center justify-center bg-purple-50">
+                    <p class="text-purple-400 font-bold tracking-widest">MORE COMING SOON</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="news" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-purple-900 mb-12">企业动态与科研</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <div class="flex flex-col h-full bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100 group">
+                    <div class="relative h-48 bg-purple-900 overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-purple-800 to-indigo-900 opacity-90"></div>
+                        <div class="absolute bottom-4 left-6">
+                            <span class="bg-white text-purple-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Strategic Partnership</span>
+                            <h3 class="text-white text-xl font-bold mt-2">扬州大学战略合作</h3>
+                        </div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col justify-between">
+                        <div>
+                            <p class="text-gray-600 mb-4 line-clamp-3">
+                                11月10日，Dongassi亚洲资源中心团队与扬州大学兽医学院进行深度会谈。双方共绘动物医学创新合作蓝图，旨在探索校企合作新模式，促进科技创新与成果转化 [cite: 53-54]。
+                            </p>
+                        </div>
+                        <button onclick="openModal('modal-news-1')" class="mt-4 text-purple-700 font-bold hover:text-purple-900 flex items-center group-hover:translate-x-2 transition-transform">
+                            阅读完整通稿 <span class="ml-2">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col h-full bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100 group">
+                    <div class="relative h-48 bg-indigo-900 overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-indigo-800 to-purple-900 opacity-90"></div>
+                        <div class="absolute bottom-4 left-6">
+                            <span class="bg-white text-indigo-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Research & Healing</span>
+                            <h3 class="text-white text-xl font-bold mt-2">北师大“宠物疗愈”</h3>
+                        </div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col justify-between">
+                        <div>
+                            <p class="text-gray-600 mb-4 line-clamp-3">
+                                11月18日，Dongassi团队访问北师大珠海校区，与心理学专家张军副教授共探“宠物疗愈”新篇章。聚焦精神抚慰犬科研与应用，打造产学研一体化平台 [cite: 65-66]。
+                            </p>
+                        </div>
+                        <button onclick="openModal('modal-news-2')" class="mt-4 text-purple-700 font-bold hover:text-purple-900 flex items-center group-hover:translate-x-2 transition-transform">
+                            阅读完整通稿 <span class="ml-2">→</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="careers" class="py-24 bg-gray-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-gray-900 to-purple-900 opacity-50"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">加入我们</h2>
+                <p class="text-xl text-purple-300">全球管培生项目 (Global Management Trainee Program)</p>
+                <div class="w-24 h-1 bg-purple-500 mx-auto mt-8"></div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="lg:w-1/2 space-y-8">
+                    <h3 class="text-3xl font-bold">寻找未来的行业领袖</h3>
+                    <p class="text-gray-300 text-lg">我们提供为期3年的跨国轮岗机会，助你完成从校园到职场的华丽转身。</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                            <div class="text-purple-400 text-2xl font-bold mb-2">£1500 / 月</div>
+                            <div class="text-gray-400 text-sm">极具竞争力的基础薪资 [cite: 6]</div>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                            <div class="text-purple-400 text-2xl font-bold mb-2">3年工签</div>
+                            <div class="text-gray-400 text-sm">提供全职工作签证支持 [cite: 8]</div>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                            <div class="text-purple-400 text-2xl font-bold mb-2">免费住宿</div>
+                            <div class="text-gray-400 text-sm">提供36个月免费住宿 [cite: 11]</div>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                            <div class="text-purple-400 text-2xl font-bold mb-2">升学支持</div>
+                            <div class="text-gray-400 text-sm">承担50%深造学费 [cite: 44]</div>
+                        </div>
+                    </div>
+
+                    <button onclick="openModal('modal-career')" class="bg-purple-600 hover:bg-purple-500 text-white font-bold py-4 px-8 rounded-full transition shadow-lg transform hover:scale-105">
+                        查看项目细则与申请方式
+                    </button>
+                </div>
+
+                <div class="lg:w-1/2 bg-white/5 p-8 rounded-2xl backdrop-blur-sm border border-white/10">
+                    <h4 class="text-xl font-bold text-white mb-6">成长路径预览</h4>
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-12 h-12 bg-purple-900 rounded-full flex items-center justify-center font-bold border-2 border-purple-500">1</div>
+                            <div class="ml-4">
+                                <h5 class="text-lg font-bold text-purple-200">第一年：跨国轮岗</h5>
+                                <p class="text-sm text-gray-400">中国分公司 (7-10月) -> 英国总部 (11月起) [cite: 16-20]</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-12 h-12 bg-purple-900 rounded-full flex items-center justify-center font-bold border-2 border-purple-500">2</div>
+                            <div class="ml-4">
+                                <h5 class="text-lg font-bold text-purple-200">第二年：深造与兼职</h5>
+                                <p class="text-sm text-gray-400">全日制硕士学习 + 每周20小时定岗兼职 [cite: 27-29]</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-12 h-12 bg-purple-900 rounded-full flex items-center justify-center font-bold border-2 border-purple-500">3</div>
+                            <div class="ml-4">
+                                <h5 class="text-lg font-bold text-purple-200">第三年：全职定岗</h5>
+                                <p class="text-sm text-gray-400">合同期满后可签订长期合同 [cite: 31-33]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="esg" class="py-24 bg-gradient-to-br from-purple-900 to-indigo-900 text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">可持续发展 (ESG)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="flex"><div class="mr-4 text-purple-300 font-bold text-xl">01</div><div><h4 class="font-bold">坚持以生命为本</h4><p class="text-sm opacity-80">全面提升动物福利水平。</p></div></div>
+                <div class="flex"><div class="mr-4 text-purple-300 font-bold text-xl">02</div><div><h4 class="font-bold">产业链透明化</h4><p class="text-sm opacity-80">严格商家审核与溯源体系。</p></div></div>
+                <div class="flex"><div class="mr-4 text-purple-300 font-bold text-xl">03</div><div><h4 class="font-bold">深化科技赋能</h4><p class="text-sm opacity-80">数字化推动行业升级。</p></div></div>
+                <div class="flex"><div class="mr-4 text-purple-300 font-bold text-xl">04</div><div><h4 class="font-bold">社会公益责任</h4><p class="text-sm opacity-80">支持流浪动物救助。</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-black text-gray-400 py-12 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h3 class="text-white text-2xl font-bold mb-4 tracking-wide text-purple-500">DONGASSI</h3>
+            <p class="mb-6 text-sm">3000 Discovery Drive, Cambridge Biomedical Campus, UK, CB2 0AX</p>
+            <p class="mb-8"><a href="mailto:contact@dongassi.com" class="text-purple-400 hover:text-white transition">contact@dongassi.com</a></p>
+            <p class="text-xs text-gray-600">&copy; 2023 DONGASSI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="modal-news-1" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 p-4">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto modal-content">
+            <div class="sticky top-0 bg-white p-6 border-b flex justify-between items-center z-10">
+                <h3 class="text-xl font-bold text-purple-900">扬州大学合作新闻稿</h3>
+                <button onclick="closeModal('modal-news-1')" class="text-gray-500 hover:text-red-500 text-2xl">&times;</button>
+            </div>
+            <div class="p-8 text-gray-700 leading-relaxed space-y-4">
+                <p><strong>发布日期：</strong> 11月10日</p>
+                <p>Dongassi公司亚洲资源中心团队一行与扬州大学兽医学院进行战略合作洽谈。团队与扬州大学兽医学院院长、副院长等核心科研团队成员举行了深度会谈，并参观其附属动物医院 [cite: 54]。</p>
+                <h4 class="text-lg font-bold text-gray-900 mt-6">深化校企合作，构建创新生态</h4>
+                <p>Dongassi亚洲资源中心团队介绍了公司的战略布局与“包容试错、长期赋能”的合作理念。双方就如何将前沿科研能力与市场洞察、资本力量相结合，进行了富有成效的探讨 [cite: 57]。</p>
+                <h4 class="text-lg font-bold text-gray-900 mt-6">确立合作共识</h4>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li><strong>规范合作机制：</strong> 依托高校规范的科研合作管理体系，确保合作项目高效、合规地推进 [cite: 60]。</li>
+                    <li><strong>渐进式发展路径：</strong> 采用“由点及面”的务实策略，优先启动个别优质项目作为试点，逐步扩大合作范围 [cite: 61]。</li>
+                </ul>
+                <p class="mt-4">双方约定将建立常态化沟通机制并立即着手推进后续工作，期待在不久的将来取得首批合作成果 [cite: 64]。</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-news-2" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 p-4">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto modal-content">
+            <div class="sticky top-0 bg-white p-6 border-b flex justify-between items-center z-10">
+                <h3 class="text-xl font-bold text-purple-900">北师大珠海校区合作新闻稿</h3>
+                <button onclick="closeModal('modal-news-2')" class="text-gray-500 hover:text-red-500 text-2xl">&times;</button>
+            </div>
+            <div class="p-8 text-gray-700 leading-relaxed space-y-4">
+                <p><strong>发布日期：</strong> 11月18日</p>
+                <p>Dongassi亚洲资源中心团队访问北京师范大学（珠海校区），与该校心理学专家张军副教授举行会谈，共同开拓“宠物疗愈”这一新兴交叉学科的应用前景 [cite: 66]。</p>
+                <h4 class="text-lg font-bold text-gray-900 mt-6">核心合作方向</h4>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li><strong>精神抚慰犬的科研与应用：</strong> 共同开展专业训练、认证标准研究，重点探索在自闭症干预、抑郁症辅助治疗、老年陪伴及哀伤辅导等场景的应用 [cite: 69]。</li>
+                    <li><strong>共建“疗愈性”科研平台：</strong> 融合心理学与建筑美学的疗愈空间，打造产学研一体化的标志性平台 [cite: 70]。</li>
+                    <li><strong>推动人才与产业融合：</strong> 联合培养宠物疗愈方向的管培生与专业人才 [cite: 71]。</li>
+                </ul>
+                <h4 class="text-lg font-bold text-gray-900 mt-6">未来展望</h4>
+                <p>双方将优先推进精神抚慰犬科研项目与教师交流计划，并待应用心理学院正式成立后举行合作签约仪式，加速项目落地 [cite: 76]。</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-career" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 p-4">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-content">
+            <div class="sticky top-0 bg-white p-6 border-b flex justify-between items-center z-10">
+                <h3 class="text-xl font-bold text-purple-900">管培生项目细则 (Global Trainee Program)</h3>
+                <button onclick="closeModal('modal-career')" class="text-gray-500 hover:text-red-500 text-2xl">&times;</button>
+            </div>
+            <div class="p-8 text-gray-700 leading-relaxed">
+                
+                <div class="bg-purple-50 p-6 rounded-lg mb-8 border border-purple-100">
+                    <h4 class="text-purple-900 font-bold text-lg mb-4">薪资与福利待遇</h4>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                        <li>💰 <strong>薪资标准：</strong> 基础薪资为每月 £1500 [cite: 6]。</li>
+                        <li>🛂 <strong>签证类型：</strong> 3年工作签证 [cite: 8]。</li>
+                        <li>🏠 <strong>住宿福利：</strong> 提供36个月免费住宿（不含水电）[cite: 11]。</li>
+                        <li>🎓 <strong>升学支持：</strong> 承担升学项目50%的学费 [cite: 44]。</li>
+                    </ul>
+                </div>
+
+                <h4 class="text-lg font-bold text-gray-900 mb-4 border-l-4 border-purple-500 pl-3">三年成长路径</h4>
+                
+                <div class="space-y-6 mb-8">
+                    <div>
+                        <h5 class="font-bold text-purple-800">第一年：跨国轮岗 (中国 & 英国)</h5>
+                        <ul class="list-disc pl-5 mt-2 text-sm space-y-1">
+                            <li><strong>7月-10月（中国）：</strong> 分公司轮岗，了解业务流程，准备赴英签证 [cite: 17-19]。</li>
+                            <li><strong>11月-次年3月（英国）：</strong> 英国总部轮岗，参与业务技能与英语培训。3月进行考核 [cite: 20-23]。</li>
+                            <li><strong>次年3月-9月：</strong> 继续英国轮岗与培训 [cite: 24]。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-purple-800">第二年：全日制学习 & 兼职</h5>
+                        <ul class="list-disc pl-5 mt-2 text-sm space-y-1">
+                            <li>通过考核者进入指定英国院校全日制学习。</li>
+                            <li>同时担任定岗20小时的兼职工作 [cite: 29]。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-purple-800">第三年：定岗就业</h5>
+                        <ul class="list-disc pl-5 mt-2 text-sm space-y-1">
+                            <li>回英国公司全职定岗工作。</li>
+                            <li>合同期满后可与公司签订长期合同 [cite: 33]。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8 pt-8 border-t">
+                    <p class="mb-4 font-bold">准备好加入我们了吗？</p>
+                    <a href="mailto:hr@dongassi.com" class="inline-block bg-purple-900 text-white px-8 py-3 rounded-md hover:bg-purple-800 transition">
+                        发送简历至 hr@dongassi.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 打开弹窗
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('hidden');
+                // 稍微延时添加active类以触发动画
+                setTimeout(() => {
+                    modal.classList.add('active');
+                }, 10);
+                document.body.style.overflow = 'hidden'; // 禁止背景滚动
+            }
+        }
+
+        // 关闭弹窗
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 300); // 等待动画结束
+                document.body.style.overflow = 'auto'; // 恢复背景滚动
+            }
+        }
+
+        // 点击背景关闭弹窗
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        }
+
+        // 初始化：确保所有modal都有hidden类
+        document.addEventListener('DOMContentLoaded', () => {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => modal.classList.add('hidden'));
+        });
+    </script>
+
+</body>
+</html>
